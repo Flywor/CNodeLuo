@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container">
+  <loading wx:if="{{isLoading}}">
+    加载中...
+  </loading>
+  <view class="content">
+    <text>
+      新消息
+    </text>
+    <label class="signAll" bindtap="bindSignAllTap">
+      全部标记已读
+    </label>
+    <view class="item" wx:if="{{unRead.length==0}}">
+      无消息
+    </view>
+    <view wx:for="{{unRead}}" wx:key="id" data-msgid="{{item.id}}" data-topicid="{{item.topic.id}}" bindtap="bindListTap" class="item">
+      <view class="up">
+        <image src="{{item.author.avatar_url}}"></image>
+        <view>
+          <label>
+            {{item.author.loginname}}
+          </label>
+          <label class="time">
+            {{item.reply.create_at}}
+          </label>
+        </view>
+        <rich-text nodes="{{item.reply.content}}"></rich-text>
+      </view>
+      <view class="down">
+        {{item.topic.title}}
+      </view>
+    </view>
+    <text>
+      过往消息
+    </text>
+    <view wx:for="{{read}}" wx:key="id" data-msgid="{{item.id}}" data-topicid="{{item.topic.id}}" bindtap="bindListTap" class="item">
+      <view class="up">
+        <image src="{{item.author.avatar_url}}"></image>
+        <view>
+          <label>
+            {{item.author.loginname}}
+          </label>
+          <label class="time">
+            {{item.reply.create_at}}
+          </label>
+        </view>
+        <rich-text nodes="{{item.reply.content}}"></rich-text>
+      </view>
+      <view class="down">
+        {{item.topic.title}}
+      </view>
+    </view>
+    <view class="item" wx:if="{{read.length==0}}">
+      无消息
+    </view>
+  </view>
+</view>

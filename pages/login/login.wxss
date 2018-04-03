@@ -1,0 +1,31 @@
+.login{
+  padding: 20% 10%;
+}
+.login input{
+  padding: 10px 5px;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+}
+.login text{
+  font-size: 80%;
+  color: grey;
+  margin-top: 10rpx;
+  padding: 10rpx;
+}
+.btn{
+  text-align: center;
+  margin-top: 30px;
+}
+.login button{
+  display: inline-block;
+  margin-top: 10rpx;
+  background-color: #5bc0de;
+  margin-right: 20px;
+  color: #fff;
+}
+.login button:last-child{
+  background-color: #08c;
+}
+.login .error{
+  color: red;
+}

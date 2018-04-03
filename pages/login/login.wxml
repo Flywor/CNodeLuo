@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="login">
+    <input placeholder="请输入accessToken进行登录" bindinput ="bindTokenInput"/>
+    <text>请在官网（http://cnodejs.org/）进行登录，然后在设置页面可以看到自己的 accessToken，建议使用手机扫码的形式进行登录，登陆后长期保存 accessToken。</text>
+    <view class="btn">
+      <button bindtap="bindScanCodeTap">扫码登录</button>
+      <button bindtap="bindSureTap">确定</button>
+    </view>
+    <text class="error">
+      {{errorMsg}}
+    </text>
+  </view>
+</view>

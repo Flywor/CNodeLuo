@@ -1,0 +1,118 @@
+@import "../../utils/wxParse/wxParse.wxss";
+.detail{
+  padding-bottom: 60px;
+}
+.title{
+  padding: 0 10px 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.title text{
+  padding-bottom: 10px;
+  font-size: 110%;
+}
+.title label{
+  display: block;
+  font-size: 80%;
+  color: grey;
+  margin-right: 10px;
+}
+.title image{
+  width: 25px;
+  height: 25px;
+  float:right;
+  margin-top:-6px;
+}
+
+.content{
+  padding: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.reply{
+  font-size: 90%;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  overflow: hidden;
+}
+.reply > text{
+  background: #f6f6f6;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  display: block;
+}
+.reply .item{
+  margin-left: 10px;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 10px 10px 10px 0;
+}
+.reply .item:last-child{
+  border-bottom: 0;
+}
+.reply .item .up{
+  display: flex;
+}
+.reply .item .up view{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.reply .item .up view image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+  border-radius: 5px;
+}
+.reply .item .up view label{
+  margin-right: 10rpx;
+}
+.reply .item .up view .tag{
+  padding: 2rpx 10rpx; 
+  border-radius: 10rpx;
+  background-color: #7abd29;
+  color: #fff;
+}
+.reply .item .up > label{
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  color: grey;
+}
+.reply .item .up > label image{
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.reply .item .down{
+  margin-top: 10rpx;
+}
+.reply .item .down text{
+  display: block;
+}
+
+.comment {
+  font-size: 80%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  border-top: 1px solid #f1f1f1;
+}
+.comment input{
+  border: 1px solid #f1f1f1;
+  margin: 10px;
+  padding: 5px;
+  display: block;
+  flex: 1;
+}
+.comment button{
+  border-radius: 3px;
+  background-color: #08c;
+  display: block;
+  color: #fff;
+  margin-right: 10px;
+}

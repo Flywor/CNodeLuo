@@ -1,0 +1,50 @@
+.content{
+  font-size: 90%;
+}
+.content > text{
+  display: inline-block;
+  width: 100%;
+  line-height: 8px;
+  padding: 10px;
+  background: #f6f6f6;
+  font-size: 90%;
+}
+.content .item{
+  padding: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+.content .item .up image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+  border-radius: 5px;
+  vertical-align:middle;
+}
+.content .item .up view{
+  display: inline-block;
+  line-height: 30rpx;
+  vertical-align:middle;
+}
+.content .item .up view label{
+  display: block;
+}
+.content .item .up view .time{
+  font-size: 80%;
+  color: grey;
+}
+.content .item .up text{
+  display: block;
+}
+.content .item .down{
+  padding: 10px;
+  background: #f0f0f0;
+}
+
+.signAll{
+  display: block;
+  color: #3c71fb;
+  position:absolute;
+  right:10px;
+  top:15px;
+  font-size: 80%;
+}

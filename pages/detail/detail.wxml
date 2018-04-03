@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="detail">
+  <view class="title">
+    <text>
+      {{title}}
+    </text>
+    <label>发布于：{{create_at}}</label>
+    <label>
+      作者：{{author.loginname}}
+      <image wx:if="{{!is_collect}}" src="/images/collect.png" bindtap="bindCollectTap"></image>
+      <image wx:if="{{is_collect}}" src="/images/collected.png" bindtap="bindCollectedTap"></image>
+    </label>
+  </view>
+  <view class="content">
+     <import src="../../utils/wxParse/wxParse.wxml"/>
+    <template is="wxParse" wx:if="{{contentMd}}" data="{{wxParseData:contentMd.nodes}}"/>
+    <loading wx:if="{{!contentMd && !contentBak}}">解析中....</loading>  
+     <rich-text wx:if="{{contentBak}}" nodes="{{contentBak}}"></rich-text>
+  </view>
+  <view class="reply" wx:if="{{replies.length > 0 && contentMd}}">
+    <text>{{replies.length}} 回复</text>
+    <view wx:for="{{replies}}" wx:key="id" class="item">
+      <view class="up">
+        <view>
+          <image src="{{item.author.avatar_url}}"></image>
+          <label>
+            {{item.author.loginname}}
+          </label>
+          <label wx:if="{{author.loginname == item.author.loginname}}" class="tag">
+            作者
+          </label>
+        </view>
+        <label>
+          <image src="/images/up.png" bindtap="bindUpTap" data-replyid="{{item.id}}"></image>
+          <text wx:if="{{item.ups.length > 0}}">{{item.ups.length}}</text>
+          <image src="/images/reply.png" bindtap="bindReplyTap" data-author="{{item.author.loginname}}" data-replyid="{{item.id}}"></image>
+        </label>
+      </view>
+      <view class="down">
+        <rich-text nodes="{{item.content}}"></rich-text>
+      </view>
+    </view>
+  </view>
+  <view class="comment">
+    <input placeholder="说点什么吧" value="{{comment}}" focus="{{commentFocus}}" bindinput="bindInputComment" maxlength="-1"/>
+    <button bindtap="bindSubmitComment">回复</button>
+  </view>
+</view>

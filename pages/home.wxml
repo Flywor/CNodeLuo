@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="tabArea">
+      <view wx:for="{{tabList}}" wx:for-index="idx" wx:key="{{item}}">
+        <text bindtap="bindTabTap" data-type="{{idx}}" class="{{tab == idx? 'active': ''}}">{{item}}</text>
+      </view>
+      <block wx:if="{{!headUrl}}">
+        <view>
+        </view>
+        <view bindtap="bindLoginTap">
+          <text>登录</text>
+        </view>
+      </block>
+      <block wx:if="{{headUrl}}">
+        <view bindtap="bindMsgTap">
+          <label class="{{unRead==0?'': 'hasNew'}}">{{unRead}}</label>
+        </view>
+        <view>
+          <image src="{{headUrl}}" bindtap="bindMyCollectTap" class="{{tab == 'collect'? 'active': ''}}"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="content">
+    <loading wx:if="{{list.length == 0}}">
+      加载中...
+    </loading>
+    <scroll-view wx:if="{{list.length > 0}}" scroll-y="true" style="height: {{scrollHeight}}px;" bindscrolltolower="loadMore"enable-back-to-top="true" scroll-top="{{scrollTop}}">
+      <view wx:for="{{list}}" wx:key="id" data-topicid="{{item.id}}" bindtap="bindListTap" class="item">
+        <view class="up">
+          <view>
+            <image src="{{item.author.avatar_url}}"></image>
+            <label>
+              {{item.author.loginname}}
+            </label>
+            <label class="{{(item.top || item.good)? 'hightlight': 'normal'}} tag">
+              {{item.top? '置顶': 
+                (item.good? '精华': tabList[item.tab])
+              }}
+            </label>
+          </view>
+          <label>
+            <image src="/images/look.png"></image>
+            {{item.visit_count}}
+            <image src="/images/comments.png"></image>
+            {{item.reply_count}}
+          </label>
+        </view>
+        <view class="down">
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+      <view class="loadMore" wx:if="{{isLoadingMore}}">
+        <text>加载中...</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>
